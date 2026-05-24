@@ -126,3 +126,9 @@
     font-size: 14px;
     text-align: center;
 }
+
+.example-account {
+    text-align: center;
+    text-emphasis: #1d4ed8;
+    text-emphasis-color: #1d4ed8;
+}

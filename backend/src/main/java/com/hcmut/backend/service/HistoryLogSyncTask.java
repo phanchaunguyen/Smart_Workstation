@@ -26,7 +26,6 @@ public class HistoryLogSyncTask {
     private final DeviceRepository deviceRepository;
     private final ObjectMapper objectMapper = new ObjectMapper();
 
-    // Chạy mỗi 1 phút một lần để test (Sau này deploy thật thì đổi thành 900000 = 15 phút)
     @Scheduled(fixedRate = 900000)
     public void syncLogsToDatabase() {
         String queueName = "history_log_queue";
@@ -35,14 +34,13 @@ public class HistoryLogSyncTask {
         Long size = stringRedisTemplate.opsForList().size(queueName);
 
         if (size == null || size == 0) {
-            return; // Không có gì để làm thì ngủ tiếp
+            return;
         }
 
         System.out.println("=== BẮT ĐẦU ĐỒNG BỘ BATCH [" + size + "] LOG TỪ REDIS XUỐNG POSTGRES ===");
         List<HistoryLog> batchToSave = new ArrayList<>();
 
         for (int i = 0; i < size; i++) {
-            // Lấy ra từ đầu danh sách và xóa luôn khỏi Redis
             String jsonLog = stringRedisTemplate.opsForList().leftPop(queueName);
 
             if (jsonLog != null) {

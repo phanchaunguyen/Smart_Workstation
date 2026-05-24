@@ -48,7 +48,7 @@ public class DatabaseSeeder implements CommandLineRunner {
 
                 userRepository.save(admin);
 
-                System.out.println("🚀 Đã tạo tài khoản Admin! (User: admin | Pass: admin123)");
+                System.out.println("Đã tạo tài khoản Admin! (User: admin | Pass: admin123)");
             }
         }
     }

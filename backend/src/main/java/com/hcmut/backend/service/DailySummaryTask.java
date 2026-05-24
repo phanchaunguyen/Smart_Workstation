@@ -21,7 +21,7 @@ public class DailySummaryTask {
     private final HistoryLogRepository historyLogRepository;
     private final DailySummaryRepository dailySummaryRepository;
 
-    // Chạy vào lúc 00:05 sáng mỗi ngày (Giờ hệ thống)
+    // Chạy vào lúc 00:00 sáng mỗi ngày (Giờ hệ thống)
     // Cấu trúc Cron: Giây - Phút - Giờ - Ngày - Tháng - Thứ
 //    @Scheduled(fixedRate = 300000)
     @Scheduled(cron = "0 0 0 * * ?")

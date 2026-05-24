@@ -100,6 +100,12 @@ const Auth = () => {
                 <button onClick={handleGuestClick} className="btn-guest">
                     Truy cập nhanh (Chế độ Khách)
                 </button>
+
+                <div className="example-account">
+                    <h3>Testing account</h3>
+                    <p>TK: a123</p>
+                    <p>MK: 123</p>
+                </div>
             </div>
         </div>
     );
